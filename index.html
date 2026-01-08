@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUTH Foundation - মানুষের জন্য আমরা</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #007BFF;
+            --secondary-blue: #1E90FF;
+            --primary-orange: #FF6600;
+            --secondary-orange: #FFA500;
+            --primary-green: #28A745;
+            --secondary-green: #00FF00;
+            --accent-color: #FF5733;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --gray-color: #6c757d;
+            --font-primary: 'Gill Sans MT', 'Noto Sans Bengali', sans-serif;
+            --font-secondary: 'Noto Sans Bengali', sans-serif;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-orange);
+        }
+
+        .header-main {
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .org-name h1 {
+            font-family: var(--font-primary);
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .org-name p {
+            color: var(--primary-orange);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 5px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--primary-orange);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(40, 167, 69, 0.8)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-orange);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary-orange);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        /* Section Common Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary-orange);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Strategic Priorities */
+        .priority-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .priority-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .priority-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .child-rights .card-icon {
+            background-color: var(--primary-blue);
+        }
+
+        .youth-dev .card-icon {
+            background-color: var(--primary-orange);
+        }
+
+        .poverty-alleviation .card-icon {
+            background-color: var(--primary-green);
+        }
+
+        .priority-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: #f0f8ff;
+            border-left: 5px solid var(--primary-blue);
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        /* Vision Mission Goals */
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .vm-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 5px solid;
+        }
+
+        .goal-card {
+            border-top-color: var(--primary-blue);
+        }
+
+        .vision-card {
+            border-top-color: var(--primary-orange);
+        }
+
+        .mission-card {
+            border-top-color: var(--primary-green);
+        }
+
+        .vm-card i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .goal-card i {
+            color: var(--primary-blue);
+        }
+
+        .vision-card i {
+            color: var(--primary-orange);
+        }
+
+        .mission-card i {
+            color: var(--primary-green);
+        }
+
+        .vm-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .vm-card p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+
+        /* Working Areas */
+        .areas-container {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .area-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .area-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .location {
+            display: inline-flex;
+            align-items: center;
+            background-color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .location i {
+            margin-right: 10px;
+            color: var(--primary-orange);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-orange);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-orange);
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary-orange);
+            margin-top: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .priority-cards, .vm-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 80px;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .header-content {
+                position: relative;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .priority-cards, .vm-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .org-name h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-top">
+            <div class="container header-top-content">
+                <div class="contact-top">
+                    <i class="fas fa-phone-alt"></i> কল করুন: +880 XXX-XXXXXX
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/17bsQ3Yojt/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container header-content">
+                <div class="logo-section">
+                    <div class="logo-placeholder">YF</div>
+                    <div class="org-name">
+                        <h1>YOUTH Foundation</h1>
+                        <p>মানুষের জন্য আমরা</p>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home">হোম</a></li>
+                        <li><a href="#about">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#priorities">কর্মসূচি</a></li>
+                        <li><a href="#vision">ভিশন ও মিশন</a></li>
+                        <li><a href="#contact">যোগাযোগ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>YOUTH Foundation - মানুষের জন্য আমরা</h2>
+            <p>একটি অলাভজনক, অরাজনৈতিক ও স্বেচ্ছাসেবী সংগঠন, যার লক্ষ্য শিশু অধিকার সুরক্ষা, যুব উন্নয়ন ও দারিদ্র্য বিমোচনের মাধ্যমে টেকসই ভবিষ্যৎ গড়ে তোলা।</p>
+            <a href="#about" class="cta-button">আমাদের সম্পর্কে জানুন</a>
+        </div>
+    </section>
+
+    <!-- Strategic Priorities Section -->
+    <section id="priorities">
+        <div class="container">
+            <div class="section-title">
+                <h2>আমাদের কৌশলগত অগ্রাধিকারসমূহ</h2>
+                <p>YOUTH Foundation তিনটি প্রধান ক্ষেত্রে কাজ করে সামাজিক পরিবর্তন আনতে প্রতিশ্রুতিবদ্ধ</p>
+            </div>
+            <div class="priority-cards">
+                <div class="priority-card child-rights">
+                    <div class="card-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>শিশুর অধিকার</h3>
+                    <p>শিশুদের অধিকার সুরক্ষা, শিশুবিবাহ প্রতিরোধ ও শিশুবান্ধব শাসন ত্বরান্বিত করা। শিশুদের নিরাপত্তা ও উন্নয়ন নিশ্চিত করতে আমরা কাজ করি।</p>
+                </div>
+                <div class="priority-card youth-dev">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>যুব উন্নয়ন</h3>
+                    <p>তরুণদের দক্ষতা বৃদ্ধি, নেতৃত্ব বিকাশ ও অর্থনৈতিক সুযোগ সৃষ্টির মাধ্যমে ক্ষমতায়ন। যুবসমাজকে দেশের উন্নয়নের মূলধারা হিসেবে গড়ে তোলা।</p>
+                </div>
+                <div class="priority-card poverty-alleviation">
+                    <div class="card-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>দারিদ্র্য বিমোচন</h3>
+                    <p>টেকসই উদ্যোগের মাধ্যমে দারিদ্র্য বিমোচন, সম্পদ সৃষ্টি ও সামাজিক নিরাপত্তা নিশ্চিত করা। কমিউনিটির সক্ষমতা বৃদ্ধি ও আত্মনির্ভরশীলতা গড়ে তোলা।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>আমরা কে?</h2>
+                <p>YOUTH Foundation সম্পর্কে পরিচিতি</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>YOUTH Foundation হল একটি অলাভজনক, অরাজনৈতিক ও স্বেচ্ছাসেবী সংগঠন যা ২০২৪ সালে প্রতিষ্ঠিত হয়। সংগঠনটি শিশু অধিকার প্রচার ও সুরক্ষা, শিশুবিবাহ প্রতিরোধ এবং শিশুবান্ধব শাসন ত্বরান্বিত করার জন্য কাজ করে।</p>
+                    <p>এছাড়াও YOUTH Foundation শিক্ষার মান উন্নয়ন, যুব উন্নয়ন এবং দারিদ্র্য বিমোচন উদ্যোগে মনোনিবেশ করে। সংগঠনটি শিশু ও যুবকদের উপর সাংস্কৃতিক ও সামাজিক পরিবর্তনের প্রভাব মোকাবিলা করে।</p>
+                    <p>কিশোর-কিশোরী, যুবক-যুবতী, নারী ও পুরুষদের দক্ষতা উন্নয়ন এবং অর্থনৈতিক সুযোগ ও কমিউনিটি-নেতৃত্বাধীন উদ্যোগের মাধ্যমে ক্ষমতায়নের জন্য আমরা কাজ করি। এসব প্রচেষ্টার মাধ্যমে ইয়ুথ ফাউন্ডেশন সাসটেইনেবল ডেভেলপমেন্ট গোল (SDGs) অর্জনে সক্রিয়ভাবে অবদান রাখে।</p>
+                </div>
+                <div class="highlight-box">
+                    <h3>আমরা যা করি</h3>
+                    <p>• শিশু অধিকার সুরক্ষা ও শিশুবিবাহ প্রতিরোধ</p>
+                    <p>• যুব দক্ষতা উন্নয়ন ও নেতৃত্ব প্রশিক্ষণ</p>
+                    <p>• দারিদ্র্য বিমোচন ও জীবিকায়ন সৃষ্টি</p>
+                    <p>• শিক্ষার মান উন্নয়ন ও প্রশিক্ষণ প্রদান</p>
+                    <p>• সামাজিক সচেতনতা বৃদ্ধি ও পরিবর্তন আনা</p>
+                    <p>• অংশীদারিত্বের মাধ্যমে টেকসই উন্নয়ন</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision, Mission, Goals Section -->
+    <section id="vision">
+        <div class="container">
+            <div class="section-title">
+                <h2>আমাদের লক্ষ্য, ভিশন ও মিশন</h2>
+                <p>সমাজ পরিবর্তনে আমাদের প্রতিশ্রুতি</p>
+            </div>
+            <div class="vm-grid">
+                <div class="vm-card goal-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>লক্ষ্য (Goal)</h3>
+                    <p>সমাজের শিশু ও যুবদের অধিকার নিশ্চিত করে একটি ন্যায়ভিত্তিক, অন্তর্ভুক্তিমূলক ও দারিদ্র্যমুক্ত ভবিষ্যৎ গড়ে তোলা।</p>
+                    <p class="bangla">(To build an inclusive and poverty-free future by ensuring the rights of children and youth in society.)</p>
+                </div>
+                <div class="vm-card vision-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>ভিশন (Vision)</h3>
+                    <p>একটি এমন সমাজ গঠন করা যেখানে প্রতিটি শিশু নিরাপদ, প্রতিটি যুবক-যুবতী দক্ষ ও ক্ষমতায়িত, এবং দারিদ্র্য বিমোচিত হবে।</p>
+                    <p class="bangla">(To create a society where every child is safe, every Youth is skilled and empowered, and poverty is eradicated.)</p>
+                </div>
+                <div class="vm-card mission-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>মিশন (Mission)</h3>
+                    <p>ইয়ুথ ফাউন্ডেশন শিশুদের অধিকার রক্ষা, যুব সমাজের দক্ষতা ও নেতৃত্ব বিকাশ, এবং দারিদ্র্য বিমোচনে টেকসই উদ্যোগ গ্রহণের মাধ্যমে একটি ন্যায্য ও সমৃদ্ধ সমাজ গঠনে প্রতিশ্রুতিবদ্ধ।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Working Areas Section -->
+    <section class="areas-container">
+        <div class="container">
+            <div class="section-title">
+                <h2>আমাদের কার্যক্রম এলাকা</h2>
+                <p>যেখানে আমরা আমাদের কার্যক্রম পরিচালনা করি</p>
+            </div>
+            <div class="area-content">
+                <p>বর্তমানে YOUTH Foundation কক্সবাজার জেলায় তার কার্যক্রম পরিচালনা করছে। আমরা এই অঞ্চলের দরিদ্র ও সুবিধাবঞ্চিত শিশু, যুবক ও নারীদের উন্নয়নে কাজ করছি। ভবিষ্যতে আমরা দেশের অন্যান্য অঞ্চলে আমাদের কার্যক্রম সম্প্রসারণের পরিকল্পনা করছি।</p>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>কক্সবাজার, বাংলাদেশ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>YOUTH Foundation</h3>
+                    <p>একটি অলাভজনক, অরাজনৈতিক ও স্বেচ্ছাসেবী সংগঠন। শিশু অধিকার, যুব উন্নয়ন ও দারিদ্র্য বিমোচনের মাধ্যমে টেকসই ভবিষ্যৎ গড়ে তুলতে আমরা কাজ করি।</p>
+                    <div class="social-icons" style="margin-top: 20px;">
+                        <a href="https://www.facebook.com/share/17bsQ3Yojt/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>দ্রুত লিংক</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">হোম</a></li>
+                        <li><a href="#about">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#priorities">কর্মসূচি</a></li>
+                        <li><a href="#vision">ভিশন ও মিশন</a></li>
+                        <li><a href="#contact">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>যোগাযোগ করুন</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>কক্সবাজার, বাংলাদেশ</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+880 XXX-XXXXXX</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@youthfoundation.org</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 YOUTH Foundation - মানুষের জন্য আমরা। সকল অধিকার সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to nav items on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
